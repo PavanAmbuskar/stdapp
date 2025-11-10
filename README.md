@@ -11,7 +11,7 @@ mv student.war /opt/tomcat/apache-tomcat-9.0.90.tar.gz/webapps
 mv mysql-connector.jar opt/tomcat/apache-tomcat-9.0.90.tar.gz/lib
 
 
-database (private)
+database (private) (manual)
 sudo apt update && sudo apt upgrade -y
 sudo apt install mysql-server -y
 sudo systemctl start mysql
@@ -62,5 +62,18 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
 
+
+if we used RDS (with apache)
+sudo apt update
+sudo apt upgrade -y
+sudo apt install mysql-server -y
+sudo systemctl start mysql
+sudo systemctl enable mysql
+sudo systemctl status mysql
+sudo mysql_secure_installation
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+bind-address = 0.0.0.0
+sudo systemctl restart mysql
+mysql -h rds-endpoint   -u admin -pPasswd123 (login with admin user)
 
 
