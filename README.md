@@ -3,6 +3,7 @@
 command
 tomcat server (private)
 sudo -i root user
+git clone https://github.com/PavanAmbuskar/stdapp.git
 sudo apt update && sudo apt upgrade -y
 sudo apt install openjdk-17-jdk -y
 mkdir /opt/tomcat
@@ -18,12 +19,13 @@ sudo systemctl start mysql
 sudo systemctl enable mysql
 sudo systemctl status mysql
 sudo mysql_secure_installation
-sudo MySQL
+sudo mysql -u root -p
 CREATE USER 'admin'@'%' IDENTIFIED BY 'Passwd123';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit
 enter with user admin and password
+sudo mysql -u admin -p
 show databases;
 create database  studentapp;
 use studentapp;
@@ -71,7 +73,7 @@ sudo systemctl start mysql
 sudo systemctl enable mysql
 sudo systemctl status mysql
 sudo mysql_secure_installation
-sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 bind-address = 0.0.0.0
 sudo systemctl restart mysql
 mysql -h rds-endpoint   -u admin -pPasswd123 (login with admin user)
